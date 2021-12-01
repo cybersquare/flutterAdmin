@@ -7,7 +7,10 @@ environment:
   sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
+  firebase_auth: ^3.2.0
+  firebase_core : ^1.10.0
   bloc: ^7.2.1
+  firebase: ^9.0.2
   flutter:
     sdk: flutter
   flutter_bloc: ^7.3.1
@@ -25,3 +28,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/images/cs_ecom_logo.png

@@ -5,9 +5,10 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:cs_ecomm/dashboard/view/dashboard_page.dart';
 import 'package:cs_ecomm/l10n/l10n.dart';
 import 'package:cs_ecomm/router/app_router.dart';
+import 'package:cs_ecomm/splash/view/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -17,6 +18,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // Firebase.initializeApp()
       onGenerateRoute: AppRouter().onGenerateRoute,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
@@ -30,7 +32,7 @@ class App extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
-      home: Dashboard(),
+      home: Splash(),
     );
   }
 }
