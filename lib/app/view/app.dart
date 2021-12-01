@@ -19,7 +19,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       onGenerateRoute: AppRouter().onGenerateRoute,
       theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
+        appBarTheme: AppBarTheme(color: Colors.blueGrey[800]),
         colorScheme: ColorScheme.fromSwatch(
           accentColor: const Color(0xFF13B9FF),
         ),

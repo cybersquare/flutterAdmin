@@ -31,8 +31,8 @@ class _DashboardState extends State<Dashboard> {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Color(0xff1976D2),
-              title: Center(
+              // backgroundColor: Color(0xff1976D2),
+              title: const Center(
                 child: Text(
                   "Dashboard",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -83,24 +83,26 @@ class _DashboardState extends State<Dashboard> {
               child: Padding(
                 padding: const EdgeInsets.all(7.0),
                 child: Card(
-                    color: Colors.lightBlue[100],
-                    child: Center(
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          //  mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              cards[index].title,
-                              style: TextStyle(
-                                  fontSize: 18.0, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              cards[index].number,
-                              style: TextStyle(fontSize: 16.0),
-                            ),
-                          ]),
-                    )),
+                  color: Colors.indigo[100],
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //  mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          cards[index].title,
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          cards[index].number,
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           );
