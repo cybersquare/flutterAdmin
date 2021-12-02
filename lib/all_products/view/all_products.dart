@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class TotalProduct extends StatelessWidget {
-  TotalProduct({Key? key}) : super(key: key);
+class AllProducts extends StatelessWidget {
+  AllProducts({Key? key}) : super(key: key);
 
   final List<Map<String, String>> user = [
     {'ProductId': '1', 'Productname': 'Samsung'},

@@ -10,6 +10,92 @@ class DashboradPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<DashboardBloc>(
+
+      create: (context) => _dashboardBloc,
+      child: BlocConsumer<DashboardBloc, DashboardState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return Scaffold(
+            appBar: AppBar(
+              // backgroundColor: Color(0xff1976D2),
+              title: const Center(
+                child: Text(
+                  "Dashboard",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            drawer: Drawers(),
+            body: _buildcard(),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildcard() {
+    // ignore: avoid_unnecessary_containers
+    return Container(
+      child: GridView.count(
+        crossAxisCount: 2,
+        controller: new ScrollController(keepScrollOffset: false),
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        children: List.generate(cards.length, (index) {
+          // return new Container(
+          return GestureDetector(
+            onTap: () {
+              switch (cards[index].title) {
+                case "Total Users":
+                  {
+                    Navigator.pushNamed(context, RouteConstants.totalUserRoute);
+                  }
+                  break;
+                case "Total Products":
+                  {
+                    Navigator.pushNamed(
+                        context, RouteConstants.totalProductRoute);
+                  }
+                  break;
+                case "Total Orders":
+                  {
+                    Navigator.pushNamed(
+                        context, RouteConstants.totalorderRoute);
+                  }
+                  break;
+              }
+            },
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(7.0),
+                child: Card(
+                  color: Colors.indigo[100],
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //  mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          cards[index].title,
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          cards[index].number,
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        }).toList(),
+
       create: (context) => _dashBoard..add(DashboardSwitch(isDAshboard: true)),
       child: Scaffold(
         appBar: PreferredSize(
@@ -26,6 +112,7 @@ class DashboradPage extends StatelessWidget {
           }
           return Container();
         }),
+
       ),
     );
   }

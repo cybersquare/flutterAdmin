@@ -1,8 +1,8 @@
+import 'package:cs_ecomm/add_products/view/addproducts.dart';
+import 'package:cs_ecomm/all_products/view/all_products.dart';
 import 'package:cs_ecomm/dashboard/view/dashboard_page.dart';
 import 'package:cs_ecomm/login/login.dart';
 import 'package:cs_ecomm/orders/view/totalorders.dart';
-import 'package:cs_ecomm/products/view/addproducts.dart';
-import 'package:cs_ecomm/products/view/totalproducts.dart';
 import 'package:cs_ecomm/router/route_constants.dart';
 import 'package:cs_ecomm/user/view/user.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class AppRouter {
         return MaterialPageRoute<MaterialPageRoute>(builder: (_) => Login());
       case RouteConstants.dashboardRoute:
         return MaterialPageRoute<MaterialPageRoute>(
-          builder: (_) => DashboradPage(),
+          builder: (_) => const Dashboard(),
         );
       case RouteConstants.totalUserRoute:
         return MaterialPageRoute<MaterialPageRoute>(
@@ -22,7 +22,9 @@ class AppRouter {
         );
       case RouteConstants.totalProductRoute:
         return MaterialPageRoute<MaterialPageRoute>(
-          builder: (_) => TotalProduct(),
+
+          builder: (_) => AllProducts(),
+
         );
       case RouteConstants.addProductRoute:
         return MaterialPageRoute<MaterialPageRoute>(
@@ -34,7 +36,7 @@ class AppRouter {
         );
       default:
         return MaterialPageRoute<MaterialPageRoute>(
-          builder: (_) => DashboradPage(),
+          builder: (_) => const Dashboard(),
         );
     }
   }
