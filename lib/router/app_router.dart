@@ -14,7 +14,7 @@ class AppRouter {
         return MaterialPageRoute<MaterialPageRoute>(builder: (_) => Login());
       case RouteConstants.dashboardRoute:
         return MaterialPageRoute<MaterialPageRoute>(
-          builder: (_) => const Dashboard(),
+          builder: (_) => DashboradPage(),
         );
       case RouteConstants.totalUserRoute:
         return MaterialPageRoute<MaterialPageRoute>(
@@ -34,7 +34,7 @@ class AppRouter {
         );
       default:
         return MaterialPageRoute<MaterialPageRoute>(
-          builder: (_) => const Dashboard(),
+          builder: (_) => DashboradPage(),
         );
     }
   }
