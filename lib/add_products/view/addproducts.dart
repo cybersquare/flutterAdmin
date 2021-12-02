@@ -2,6 +2,7 @@ import 'package:cs_ecomm/add_products/bloc/addproduct_bloc.dart';
 import 'package:cs_ecomm/add_products/view/widget/add_product_submit.dart';
 import 'package:cs_ecomm/add_products/view/widget/add_product_text_field.dart';
 import 'package:cs_ecomm/add_products/view/widget/dropdown.dart';
+import 'package:cs_ecomm/add_products/view/widget/file_upload.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -68,6 +69,7 @@ class AddProduct extends StatelessWidget {
               DropDown(
                 status: productStatus,
               ),
+              FileUploadWidget(),
               AddProductSubmit(
                 addProductSubmit: () {
                   _addproductBloc.add(
