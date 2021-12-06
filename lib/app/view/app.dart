@@ -8,6 +8,7 @@
 import 'package:cs_ecomm/dashboard/view/dashboard_page.dart';
 import 'package:cs_ecomm/l10n/l10n.dart';
 import 'package:cs_ecomm/router/app_router.dart';
+import 'package:cs_ecomm/viewProduct/view_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -30,7 +31,7 @@ class App extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
-      home: Dashboard(),
+      home: const ViewProduct(),
     );
   }
 }
