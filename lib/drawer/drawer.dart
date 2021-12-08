@@ -15,24 +15,24 @@ class _DrawersState extends State<Drawers> {
           children: [
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xff1E88E5),
+                color: Colors.blueGrey[800],
               ),
-              accountName: Text("Username"),
-              accountEmail: Text("xxx@gmail.com"),
+              accountName: const Text('Username'),
+              accountEmail: const Text('xxx@gmail.com'),
               currentAccountPicture: CircleAvatar(
                 backgroundColor:
                     Theme.of(context).platform == TargetPlatform.iOS
                         ? Colors.green
                         : Colors.white,
-                child: Text(
-                  "A",
-                  style: TextStyle(fontSize: 40.0),
+                child: const Text(
+                  'A',
+                  style: TextStyle(fontSize: 40),
                 ),
               ),
             ),
             ListTile(
-              title: Text('Home'),
-              leading: Icon(Icons.dashboard),
+              title: const Text('Home'),
+              leading: const Icon(Icons.dashboard),
               onTap: () {
                 Navigator.pushNamed(context, RouteConstants.dashboardRoute);
               },
