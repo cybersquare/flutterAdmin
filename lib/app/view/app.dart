@@ -7,6 +7,7 @@
 
 import 'package:cs_ecomm/l10n/l10n.dart';
 import 'package:cs_ecomm/router/app_router.dart';
+import 'package:cs_ecomm/viewProduct/view_product.dart';
 
 import 'package:cs_ecomm/update_product/update_product.dart';
 
@@ -36,7 +37,6 @@ class App extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
-
       home: Splash(),
     );
   }
