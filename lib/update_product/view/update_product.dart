@@ -1,4 +1,5 @@
 import 'package:cs_ecomm/update_product/view/widget/button_widget.dart';
+import 'package:cs_ecomm/update_product/view/widget/dropdown.dart';
 import 'package:cs_ecomm/update_product/view/widget/product_image.dart';
 import 'package:cs_ecomm/update_product/view/widget/update_product_textfield.dart';
 import 'package:file_picker/file_picker.dart';
@@ -14,11 +15,18 @@ class UpdateProduct extends StatelessWidget {
   );
   TextEditingController priceController = TextEditingController(text: '20');
   TextEditingController quantityController = TextEditingController(text: '5');
+  List<DropdownMenuItem<dynamic>> productStatus =
+      ['Active', 'Draft'].map<DropdownMenuItem<String>>((String value) {
+    return DropdownMenuItem<String>(
+      value: value,
+      child: Text(value),
+    );
+  }).toList();
 
   // String buttonText = "Add product";
   // Function onPressFun = () {};
   Color submitBtnColor = Colors.blue;
-  Color resetBtnColor = Color(0xFFE8EAF6);
+  Color resetBtnColor = const Color(0xFFE8EAF6);
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +78,9 @@ class UpdateProduct extends StatelessWidget {
                 hintText: 'Quantity',
                 maxLine: 1,
               ),
+            ),
+            DropDown(
+              status: productStatus,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
