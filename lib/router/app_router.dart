@@ -22,9 +22,7 @@ class AppRouter {
         );
       case RouteConstants.totalProductRoute:
         return MaterialPageRoute<MaterialPageRoute>(
-
           builder: (_) => AllProducts(),
-
         );
       case RouteConstants.addProductRoute:
         return MaterialPageRoute<MaterialPageRoute>(
@@ -33,6 +31,10 @@ class AppRouter {
       case RouteConstants.totalorderRoute:
         return MaterialPageRoute<MaterialPageRoute>(
           builder: (_) => TotalOrder(),
+        );
+      case RouteConstants.allProducts:
+        return MaterialPageRoute<MaterialPageRoute>(
+          builder: (_) => AllProducts(),
         );
       default:
         return MaterialPageRoute<MaterialPageRoute>(

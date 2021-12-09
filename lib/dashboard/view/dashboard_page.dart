@@ -189,21 +189,22 @@ class _DashboardState extends State<Dashboard> {
                   break;
                 case "Total Products":
                   {
-                    Navigator.pushNamed(
-                        context, RouteConstants.totalProductRoute);
+                    Navigator.pushNamed(context, RouteConstants.allProducts);
                   }
                   break;
                 case "Total Orders":
                   {
                     Navigator.pushNamed(
-                        context, RouteConstants.totalorderRoute);
+                      context,
+                      RouteConstants.totalorderRoute,
+                    );
                   }
                   break;
               }
             },
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.all(7.0),
+                padding: const EdgeInsets.all(7),
                 child: Card(
                     color: Colors.lightBlue[100],
                     child: Center(
@@ -214,12 +215,12 @@ class _DashboardState extends State<Dashboard> {
                           children: <Widget>[
                             Text(
                               cards[index].title,
-                              style: TextStyle(
-                                  fontSize: 18.0, fontWeight: FontWeight.bold),
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
                             ),
                             Text(
                               cards[index].number,
-                              style: TextStyle(fontSize: 16.0),
+                              style: const TextStyle(fontSize: 16.0),
                             ),
                           ]),
                     )),
