@@ -6,13 +6,15 @@ class UpdateProductTextField extends StatelessWidget {
     required this.controller,
     required this.hintText,
     required this.maxLine,
+    required this.validationError,
   }) : super(key: key);
   TextEditingController controller;
   String hintText;
   int maxLine;
+  String validationError;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       style: const TextStyle(height: .15),
       keyboardType: TextInputType.text,
       controller: controller,
@@ -23,6 +25,11 @@ class UpdateProductTextField extends StatelessWidget {
         hintText: hintText,
         border: const OutlineInputBorder(),
       ),
+      validator: (value) {
+        if (value!.isEmpty) {
+          return validationError;
+        }
+      },
     );
   }
 }
