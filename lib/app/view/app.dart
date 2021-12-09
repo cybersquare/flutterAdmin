@@ -5,6 +5,7 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:cs_ecomm/add_products/addproduct.dart';
 import 'package:cs_ecomm/l10n/l10n.dart';
 import 'package:cs_ecomm/router/app_router.dart';
 import 'package:cs_ecomm/viewProduct/view_product.dart';
