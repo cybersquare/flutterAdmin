@@ -19,3 +19,5 @@ class ProductAddingEvent extends AddproductEvent {
   int quantity;
   String status;
 }
+
+class ClearFormEvent extends AddproductEvent {}

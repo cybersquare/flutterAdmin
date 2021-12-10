@@ -174,7 +174,7 @@ class _DashboardState extends State<Dashboard> {
     return Container(
       child: GridView.count(
         crossAxisCount: 2,
-        controller: new ScrollController(keepScrollOffset: false),
+        controller: ScrollController(keepScrollOffset: false),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         children: List.generate(cards.length, (index) {

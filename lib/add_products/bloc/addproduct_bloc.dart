@@ -25,7 +25,8 @@ class AddproductBloc extends Bloc<AddproductEvent, AddproductState> {
   @override
   Stream<AddproductState> mapEventToState(AddproductEvent event) async* {
     if (event is ProductAddingEvent) {
-      await products.add({
+      print("prod adding event");
+      var val = await products.add({
         'productName': event.productTitle,
         'productId': event.productId,
         'description': event.description,
@@ -33,7 +34,14 @@ class AddproductBloc extends Bloc<AddproductEvent, AddproductState> {
         'quantity': event.quantity,
         'status': event.quantity,
       });
+      if (val == null) {
+        print("null value");
+      } else {
+        print("value exist");
+        yield ProductUploadState();
+      }
+    } else if (event is ClearFormEvent) {
+      yield ClearFormState();
     }
-    yield ProductUploadState();
   }
 }
