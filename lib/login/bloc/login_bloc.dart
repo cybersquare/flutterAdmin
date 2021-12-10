@@ -8,24 +8,24 @@ part 'login_state.dart';
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final FirebaseAuth _authentication = FirebaseAuth.instance;
   LoginBloc() : super(LoginInitial()) {
-    on<LoginEvent>((event, emit) async {
-      if (event is LoginWithEmailAndPassword) {
-        try {
-          var userDetails = await _authentication.signInWithEmailAndPassword(
-            email: event.email,
-            password: event.password,
-          );
-          print('Authentication done');
-          print(userDetails);
-          if (userDetails == null) {
-            print('Login Failed');
-          } else {
-            emit(NavigateToHome());
+    on<LoginEvent>(
+      (event, emit) async {
+        if (event is LoginWithEmailAndPassword) {
+          try {
+            final userDetails =
+                await _authentication.signInWithEmailAndPassword(
+              email: event.email,
+              password: event.password,
+            );
+            if (userDetails == null) {
+            } else {
+              emit(NavigateToHome());
+            }
+          } catch (e) {
+            emit(InvalidLogin());
           }
-        } catch (e) {
-          print('login failed');
         }
-      }
-    });
+      },
+    );
   }
 }

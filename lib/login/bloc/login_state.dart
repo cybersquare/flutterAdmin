@@ -8,3 +8,7 @@ class LoginInitial extends LoginState {}
 class NavigateToLogin extends LoginState {}
 
 class NavigateToHome extends LoginState {}
+
+class InvalidLogin extends LoginState {}
+
+
