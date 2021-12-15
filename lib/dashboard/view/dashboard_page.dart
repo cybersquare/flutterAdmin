@@ -154,9 +154,9 @@ class _DashboardState extends State<Dashboard> {
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Color(0xff1976D2),
-              title: Center(
+              title: const Center(
                 child: Text(
-                  "Dashboard",
+                  'Dashboard',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),

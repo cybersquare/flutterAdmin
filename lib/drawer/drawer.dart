@@ -43,7 +43,11 @@ class _DrawersState extends State<Drawers> {
                 Icons.shopping_cart,
               ),
               onTap: () {
-                Navigator.pushNamed(context, RouteConstants.addProductRoute);
+                Navigator.pushNamed(
+                  context,
+                  RouteConstants.updateProduct,
+                  arguments: '200000000000000',
+                );
               },
             ),
             ListTile(
