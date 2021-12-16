@@ -32,7 +32,7 @@ class AddproductBloc extends Bloc<AddproductEvent, AddproductState> {
         'description': event.description,
         'price': event.price,
         'quantity': event.quantity,
-        'status': event.quantity,
+        'status': event.status,
       });
       if (val == null) {
         print("null value");
