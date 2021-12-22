@@ -16,3 +16,16 @@ class LoadUpdateProductDetailsEvent extends UpdateproductEvent {
   }
   final Object? productId;
 }
+
+class UpdateProductPushToDatabaseEvent extends UpdateproductEvent {
+  UpdateProductPushToDatabaseEvent({
+    required this.productName,
+    required this.price,
+    required this.description,
+    required this.quantity,
+  });
+  String productName;
+  String price;
+  String description;
+  String quantity;
+}

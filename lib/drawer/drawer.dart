@@ -46,7 +46,8 @@ class _DrawersState extends State<Drawers> {
                 Navigator.pushNamed(
                   context,
                   RouteConstants.addProductRoute,
-                  arguments: '200000000000000',
+                  // RouteConstants.updateProduct,
+                  arguments: '20000',
                 );
               },
             ),

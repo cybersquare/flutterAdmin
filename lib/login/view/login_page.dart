@@ -23,65 +23,67 @@ class Login extends StatelessWidget {
         },
         builder: (context, state) {
           return Scaffold(
-            body: Center(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 180),
-                    child: Image.asset('assets/images/cs_ecom_logo.png'),
-                  ),
-                  const Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+            body: SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 180),
+                      child: Image.asset('assets/images/cs_ecom_logo.png'),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 30,
-                      right: 30,
-                      top: 50,
-                      bottom: 20,
-                    ),
-                    child: TextField(
-                      controller: _email,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: const InputDecoration(
-                        hintText: 'Email',
-                        border: OutlineInputBorder(),
+                    const Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 30,
-                      right: 30,
-                      bottom: 20,
-                    ),
-                    child: TextField(
-                      controller: _password,
-                      keyboardType: TextInputType.text,
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        hintText: 'Password',
-                        border: OutlineInputBorder(),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 30,
+                        right: 30,
+                        top: 50,
+                        bottom: 20,
                       ),
-                    ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      _loginBloc.add(
-                        LoginWithEmailAndPassword(
-                          email: _email.text,
-                          password: _password.text,
+                      child: TextField(
+                        controller: _email,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                          hintText: 'Email',
+                          border: OutlineInputBorder(),
                         ),
-                      );
-                    },
-                    child: const Text('Login'),
-                  )
-                ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 30,
+                        right: 30,
+                        bottom: 20,
+                      ),
+                      child: TextField(
+                        controller: _password,
+                        keyboardType: TextInputType.text,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          hintText: 'Password',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _loginBloc.add(
+                          LoginWithEmailAndPassword(
+                            email: _email.text,
+                            password: _password.text,
+                          ),
+                        );
+                      },
+                      child: const Text('Login'),
+                    )
+                  ],
+                ),
               ),
             ),
           );

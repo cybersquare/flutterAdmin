@@ -11,13 +11,19 @@ class ProductAddingEvent extends AddproductEvent {
     required this.price,
     required this.quantity,
     required this.status,
+    required this.imageController,
+    required this.imagename,
+    required this.mimeType,
   });
-  String productTitle;
-  String productId;
-  String description;
-  double price;
-  int quantity;
-  String status;
+  final String productTitle;
+  final String productId;
+  final String description;
+  final double price;
+  final int quantity;
+  final String status;
+  final io.File imageController;
+  final String imagename;
+  final String? mimeType;
 }
 
 class ClearFormEvent extends AddproductEvent {}

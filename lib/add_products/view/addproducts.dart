@@ -1,7 +1,11 @@
+import 'dart:io' as io;
+
 import 'package:cs_ecomm/add_products/bloc/addproduct_bloc.dart';
 import 'package:cs_ecomm/add_products/view/widget/add_product_submit.dart';
 import 'package:cs_ecomm/add_products/view/widget/add_product_text_field.dart';
 import 'package:cs_ecomm/add_products/view/widget/dropdown.dart';
+import 'package:cs_ecomm/addproduct_image/add_product_image.dart';
+import 'package:cs_ecomm/addproduct_image/view/add_product_image.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:cs_ecomm/add_products/view/widget/file_upload.dart';
@@ -23,6 +27,10 @@ class AddProduct extends StatelessWidget {
       TextEditingController(text: '');
   final TextEditingController statusController =
       TextEditingController(text: '');
+  io.File imageController = io.File('');
+  String imagename = '';
+  String? mimeType = '';
+
   List<DropdownMenuItem<dynamic>> productStatus =
       ['Active', 'Draft'].map<DropdownMenuItem<String>>((String value) {
     return DropdownMenuItem<String>(
@@ -42,11 +50,20 @@ class AddProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AddproductBloc>(
-      create: (context) => _addproductBloc,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AddproductBloc>(
+          create: (BuildContext context) => _addproductBloc,
+        ),
+        BlocProvider<AddproductimageBloc>(
+          create: (BuildContext context) => AddproductimageBloc(),
+        ),
+      ],
+      // create: (context) => _addproductBloc,
       child: BlocConsumer<AddproductBloc, AddproductState>(
         listener: (context, state) {
           print(state);
+
           if (state is ProductUploadState) {
             showTopSnackBar(
               context,
@@ -79,6 +96,19 @@ class AddProduct extends StatelessWidget {
                 key: formGlobalKey,
                 child: Column(
                   children: [
+                    BlocBuilder<AddproductimageBloc, AddproductimageState>(
+                      builder: (context, state) {
+                        if (state is ProductImageAddedState) {
+                          mimeType = state.mimeType;
+                          imagename = state.imagename;
+                          imageController = state.imagefile;
+                        }
+
+                        return AddProductImage(
+                          imageController: imageController,
+                        );
+                      },
+                    ),
                     AddProductTextFieldWidget(
                       controller: productTitleController,
                       hintText: 'Product Title',
@@ -106,7 +136,7 @@ class AddProduct extends StatelessWidget {
                     // DropDown(
                     //   status: productStatus,
                     // ),
-                    const FileUploadWidget(),
+                    // const FileUploadWidget(),
                     AddProductSubmit(
                       addProductSubmit: () {
                         if (formGlobalKey.currentState!.validate()) {
@@ -118,6 +148,9 @@ class AddProduct extends StatelessWidget {
                               price: double.parse(priceController.text),
                               quantity: int.parse(quantityController.text),
                               status: statusController.text,
+                              imageController: imageController,
+                              imagename: imagename,
+                              mimeType: mimeType,
                             ),
                           );
                         }
