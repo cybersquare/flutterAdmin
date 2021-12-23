@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddProduct extends StatelessWidget {
   AddProduct({Key? key}) : super(key: key);
+  final formGlobalKey = GlobalKey<FormState>();
 
   final AddproductBloc _addproductBloc = AddproductBloc();
   final TextEditingController productTitleController =
@@ -40,51 +41,56 @@ class AddProduct extends StatelessWidget {
           ),
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              AddProductTextFieldWidget(
-                controller: productTitleController,
-                hintText: 'Product Title',
-              ),
-              AddProductTextFieldWidget(
-                controller: productidController,
-                hintText: 'Product Id',
-              ),
-              AddProductTextFieldWidget(
-                controller: descriptionController,
-                hintText: 'Description',
-              ),
-              AddProductTextFieldWidget(
-                controller: priceController,
-                hintText: 'Price(In Ruppes)',
-              ),
-              AddProductTextFieldWidget(
-                controller: quantityController,
-                hintText: 'Quantity',
-              ),
-              AddProductTextFieldWidget(
-                controller: statusController,
-                hintText: 'Status',
-              ),
-              DropDown(
-                status: productStatus,
-              ),
-              FileUploadWidget(),
-              AddProductSubmit(
-                addProductSubmit: () {
-                  _addproductBloc.add(
-                    ProductAddingEvent(
-                      productTitle: productTitleController.text,
-                      productId: productidController.text,
-                      description: descriptionController.text,
-                      price: double.parse(priceController.text),
-                      quantity: int.parse(quantityController.text),
-                      status: statusController.text,
-                    ),
-                  );
-                },
-              ),
-            ],
+          child: Form(
+            key: formGlobalKey,
+            child: Column(
+              children: [
+                AddProductTextFieldWidget(
+                  controller: productTitleController,
+                  hintText: 'Product Title',
+                ),
+                AddProductTextFieldWidget(
+                  controller: productidController,
+                  hintText: 'Product Id',
+                ),
+                AddProductTextFieldWidget(
+                  controller: descriptionController,
+                  hintText: 'Description',
+                ),
+                AddProductTextFieldWidget(
+                  controller: priceController,
+                  hintText: 'Price(In Ruppes)',
+                ),
+                AddProductTextFieldWidget(
+                  controller: quantityController,
+                  hintText: 'Quantity',
+                ),
+                AddProductTextFieldWidget(
+                  controller: statusController,
+                  hintText: 'Status',
+                ),
+                DropDown(
+                  status: productStatus,
+                ),
+                FileUploadWidget(),
+                AddProductSubmit(
+                  addProductSubmit: () {
+                    if (formGlobalKey.currentState!.validate()) {
+                      _addproductBloc.add(
+                        ProductAddingEvent(
+                          productTitle: productTitleController.text,
+                          productId: productidController.text,
+                          description: descriptionController.text,
+                          price: double.parse(priceController.text),
+                          quantity: int.parse(quantityController.text),
+                          status: statusController.text,
+                        ),
+                      );
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

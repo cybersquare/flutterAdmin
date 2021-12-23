@@ -21,6 +21,9 @@ dependencies:
   intl: ^0.17.0
   flutter_screenutil: ^5.0.1
   equatable: ^2.0.3
+  top_snackbar_flutter: ^1.0.2
+  pie_chart: ^5.1.0
+  syncfusion_flutter_charts: ^19.3.59
 
 dev_dependencies:
   bloc_test: ^8.4.0
