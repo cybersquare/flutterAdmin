@@ -38,24 +38,29 @@ class _DrawersState extends State<Drawers> {
               },
             ),
             ListTile(
-              title: Text('Add Product'),
-              leading: Icon(
+              title: const Text('Add Product'),
+              leading: const Icon(
                 Icons.shopping_cart,
               ),
               onTap: () {
-                Navigator.pushNamed(context, RouteConstants.addProductRoute);
+                Navigator.pushNamed(
+                  context,
+                  RouteConstants.addProductRoute,
+                  // RouteConstants.updateProduct,
+                  arguments: '20000',
+                );
               },
             ),
             ListTile(
-              title: Text('Settings'),
-              leading: Icon(
+              title: const Text('Settings'),
+              leading: const Icon(
                 Icons.settings,
               ),
               onTap: () {},
             ),
             ListTile(
-              title: Text('Logout'),
-              leading: Icon(
+              title: const Text('Logout'),
+              leading: const Icon(
                 Icons.logout,
               ),
               onTap: () {},

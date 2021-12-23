@@ -6,4 +6,6 @@ class RouteConstants {
   static const String totalProductRoute = '/totalproduct';
   static const String addProductRoute = '/addproduct';
   static const String totalorderRoute = '/totalorder';
+  static const String allProducts = '/AllProducts';
+  static const String updateProduct = '/UpdateProducts';
 }
