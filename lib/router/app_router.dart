@@ -6,6 +6,7 @@ import 'package:cs_ecomm/orders/view/totalorders.dart';
 import 'package:cs_ecomm/router/route_constants.dart';
 import 'package:cs_ecomm/update_product/view/update_product.dart';
 import 'package:cs_ecomm/user/view/user.dart';
+import 'package:cs_ecomm/viewProduct/view/viewproduct_page.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -23,7 +24,7 @@ class AppRouter {
         );
       case RouteConstants.totalProductRoute:
         return MaterialPageRoute<MaterialPageRoute>(
-          builder: (_) => AllProducts(),
+          builder: (_) => ViewProduct(),
         );
       case RouteConstants.addProductRoute:
         return MaterialPageRoute<MaterialPageRoute>(

@@ -16,7 +16,11 @@ class AddproductBloc extends Bloc<AddproductEvent, AddproductState> {
   AddproductBloc() : super(AddproductInitial());
   final CollectionReference products =
       FirebaseFirestore.instance.collection('products');
+
   final uuid = const Uuid();
+
+  AddproductBloc() : super(AddproductInitial());
+
   @override
   Stream<AddproductState> mapEventToState(AddproductEvent event) async* {
     if (event is ProductAddingEvent) {
