@@ -23,7 +23,10 @@ class AppRouter {
         );
       case RouteConstants.totalProductRoute:
         return MaterialPageRoute<MaterialPageRoute>(
+<
           builder: (_) => ViewProduct(),
+
+         
         );
       case RouteConstants.addProductRoute:
         return MaterialPageRoute<MaterialPageRoute>(

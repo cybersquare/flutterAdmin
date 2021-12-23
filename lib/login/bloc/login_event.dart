@@ -8,3 +8,7 @@ class LoginWithEmailAndPassword extends LoginEvent {
   String email;
   String password;
 }
+
+class InvalidEmailOrPassword extends LoginEvent {}
+
+
