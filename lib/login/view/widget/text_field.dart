@@ -17,7 +17,7 @@ class UserTextField extends StatelessWidget {
           padding: const EdgeInsets.only(
             left: 30,
             right: 30,
-            top: 100,
+            top: 50,
             bottom: 20,
           ),
           child: Form(
@@ -26,7 +26,7 @@ class UserTextField extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 15),
+                  padding: const EdgeInsets.only(bottom: 10),
                   child: TextFormField(
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -37,7 +37,7 @@ class UserTextField extends StatelessWidget {
                     controller: _email,
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
-                      hintText: 'Email',
+                      labelText: 'Email',
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -53,7 +53,7 @@ class UserTextField extends StatelessWidget {
                   keyboardType: TextInputType.text,
                   obscureText: true,
                   decoration: const InputDecoration(
-                    hintText: 'Password',
+                    labelText: 'Password',
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -62,13 +62,23 @@ class UserTextField extends StatelessWidget {
           ),
         ),
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.green,
+            padding:
+                const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
+            textStyle: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           onPressed: () {
             if (_myform.currentState!.validate() == false) {
-              print('Process data');
             } else {
               loginBloc.add(
                 LoginWithEmailAndPassword(
-                    email: _email.text, password: _password.text),
+                  email: _email.text,
+                  password: _password.text,
+                ),
               );
             }
           },

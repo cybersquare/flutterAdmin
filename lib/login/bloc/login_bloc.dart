@@ -17,10 +17,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               email: event.email,
               password: event.password,
             );
-            if (userDetails == null) {
-            } else {
-              emit(NavigateToHome());
-            }
+            emit(NavigateToHome());
           } catch (e) {
             emit(InvalidLogin());
           }

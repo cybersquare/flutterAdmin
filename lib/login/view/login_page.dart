@@ -18,14 +18,13 @@ class Login extends StatelessWidget {
       create: (context) => _loginBloc,
       child: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
-          print('state');
           if (state is NavigateToHome) {
             Navigator.pushNamed(context, RouteConstants.dashboardRoute);
-          } else {
+          } else if (state is InvalidLogin) {
             showTopSnackBar(
               context,
               const CustomSnackBar.error(
-                message: 'The email or password you enterd is incorrect',
+                message: 'The Email or Password you enterd is incorrect',
               ),
             );
           }
@@ -37,16 +36,8 @@ class Login extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 180),
+                      padding: const EdgeInsets.only(top: 10),
                       child: Image.asset('assets/images/cs_ecom_logo.png'),
-                    ),
-                    const Text(
-                      'Login',
-                      style: TextStyle(
-                        color: Colors.deepPurple,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
                     ),
                     UserTextField(
                       loginBloc: _loginBloc,

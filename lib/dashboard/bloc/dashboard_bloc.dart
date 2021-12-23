@@ -6,7 +6,7 @@ part 'dashboard_event.dart';
 part 'dashboard_state.dart';
 
 class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
-  DashboardBloc() : super(DashboardSelectedState(showDashboard: false));
+  DashboardBloc() : super(DashboardSelectedState(showDashboard: true));
   @override
   Stream<DashboardState> mapEventToState(DashboardEvent event) async* {
     if (event is DashboardSwitch) {

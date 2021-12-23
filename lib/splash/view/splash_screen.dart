@@ -11,7 +11,6 @@ class Splash extends StatelessWidget {
     return BlocProvider(
       create: (context) => _splashBloc..add(SplashStartEvent()),
       child: Scaffold(
-        backgroundColor: Colors.black,
         body: BlocConsumer<SplashBloc, SplashState>(
           listener: (context, state) {
             if (state is SplashNavigateToLogin) {
