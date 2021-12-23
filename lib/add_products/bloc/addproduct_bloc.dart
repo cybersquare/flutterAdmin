@@ -12,15 +12,6 @@ class AddproductBloc extends Bloc<AddproductEvent, AddproductState> {
   final CollectionReference products =
       FirebaseFirestore.instance.collection('products');
   AddproductBloc() : super(AddproductInitial());
-  // on<AddproductEvent>(
-  //   (event, emit) {
-  //     // if (event is ProductAddingEvent) {
-  //     //   moviesRef.add({
-  //     //     'productname': 'sds',
-  //     //   })
-  //     // }
-  //   },
-  // );
 
   @override
   Stream<AddproductState> mapEventToState(AddproductEvent event) async* {
