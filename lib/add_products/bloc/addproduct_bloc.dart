@@ -19,8 +19,6 @@ class AddproductBloc extends Bloc<AddproductEvent, AddproductState> {
 
   final uuid = const Uuid();
 
-  AddproductBloc() : super(AddproductInitial());
-
   @override
   Stream<AddproductState> mapEventToState(AddproductEvent event) async* {
     if (event is ProductAddingEvent) {

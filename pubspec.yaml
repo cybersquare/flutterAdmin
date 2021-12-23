@@ -28,10 +28,6 @@ dependencies:
   uuid: ^3.0.5
   fast_flutter_driver: ^3.0.0+1
   integration_test: ^0.8.1
-
-  equatable: ^2.0.3
-
-  top_snackbar_flutter: ^1.0.2
   pie_chart: ^5.1.0
   syncfusion_flutter_charts: ^19.3.59
 
