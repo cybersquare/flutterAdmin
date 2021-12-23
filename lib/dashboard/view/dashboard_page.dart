@@ -7,11 +7,7 @@
 
 // class DashboradPage extends StatelessWidget {
 //   DashboradPage({Key? key}) : super(key: key);
-//   DashboardBloc _dashBoard = DashboardBloc();
-//   @override
-//   Widget build(BuildContext context) {
-//     return BlocProvider<DashboardBloc>(
-//       create: (context) => _dashBoard,
+
 //       child: BlocConsumer<DashboardBloc, DashboardState>(
 //         listener: (context, state) {
 //           // TODO: implement listener
@@ -91,32 +87,8 @@
 //                     ),
 //                   ),
 //                 ),
-//               ),
-//             ),
-//           );
-//         }).toList(),
-//         create: (context) =>
-//             _dashBoard..add(DashboardSwitch(isDAshboard: true)),
-//         child: Scaffold(
-//           appBar: PreferredSize(
-//             preferredSize: Size.fromHeight(50),
-//             child: AppBarPage(dashboardBloc: _dashBoard),
-//           ),
-//           body: BlocBuilder<DashboardBloc, DashboardState>(
-//               builder: (context, state) {
-//             if (state is DashboardSelectedState) {
-//               if (state.showDashboard == true) {
-//                 return DashboradPage();
-//               }
-//               return ManageUI();
-//             }
-//             return Container();
-//           }),
-//         ),
-//       ),
-//     );
-//   }
-// }
+
+
 
 import 'package:cs_ecomm/dashboard/bloc/dashboard_bloc.dart';
 import 'package:cs_ecomm/dashboard/widgets/appbar.dart';
@@ -213,18 +185,39 @@ class _DashboardState extends State<Dashboard> {
 //                         ],
 //                       ),
 //                     )),
+
 //               ),
 //             ),
 //           );
 //         }).toList(),
+
+//       create: (context) => _dashBoard..add(DashboardSwitch(isDAshboard: true)),
+//       child: Scaffold(
+//         appBar: PreferredSize(
+//           preferredSize: Size.fromHeight(50),
+//           child: AppBarPage(dashboardBloc: _dashBoard),
+//         ),
+//         body: BlocBuilder<DashboardBloc, DashboardState>(
+//             builder: (context, state) {
+//           if (state is DashboardSelectedState) {
+//             if (state.showDashboard == true) {
+//               return DashboradPage();
+//             }
+//             return ManageUI();
+//           }
+//           return Container();
+//         }),
+
 //       ),
 //     );
 //   }
 // }
+
 
 // class Cards {
 //   const Cards({required this.title, required this.number});
 //   final String title;
 //   final String number;
 // }
+
 }

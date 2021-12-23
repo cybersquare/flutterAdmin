@@ -5,8 +5,10 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:cs_ecomm/add_products/addproduct.dart';
 import 'package:cs_ecomm/l10n/l10n.dart';
 import 'package:cs_ecomm/router/app_router.dart';
+import 'package:cs_ecomm/viewProduct/view_product.dart';
 
 import 'package:cs_ecomm/update_product/update_product.dart';
 
@@ -33,15 +35,16 @@ class App extends StatelessWidget {
             accentColor: const Color(0xFF13B9FF),
           ),
         ),
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-        ],
-        supportedLocales: AppLocalizations.supportedLocales,
-        debugShowCheckedModeBanner: false,
 
-        home: Splash(),
       ),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
+      debugShowCheckedModeBanner: false,
+      home: Splash(),
+
     );
   }
 }
