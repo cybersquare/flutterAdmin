@@ -21,8 +21,7 @@ class AddproductBloc extends Bloc<AddproductEvent, AddproductState> {
   Stream<AddproductState> mapEventToState(AddproductEvent event) async* {
     if (event is ProductAddingEvent) {
       // print(event.)
-      final firebaseStrorage.Reference ref = firebaseStrorage
-          .FirebaseStorage.instance
+      final ref = firebaseStrorage.FirebaseStorage.instance
           .ref()
           .child('product_images')
           .child('${uuid.v4()}${event.imagename}');
@@ -36,8 +35,6 @@ class AddproductBloc extends Bloc<AddproductEvent, AddproductState> {
 
       await ref.putFile(event.imageController, metadata);
       final imgPublicLink = await ref.getDownloadURL();
-      print(imgPublicLink);
-
       final val = await products.add({
         'productName': event.productTitle,
         'productId': event.productId,
