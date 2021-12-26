@@ -22,7 +22,7 @@ class UserTextField extends StatelessWidget {
           ),
           child: Form(
             key: _myform,
-            autovalidate: false,
+            autovalidateMode: AutovalidateMode.disabled,
             child: Column(
               children: [
                 Padding(
