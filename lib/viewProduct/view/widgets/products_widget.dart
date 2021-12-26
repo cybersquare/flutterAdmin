@@ -22,14 +22,14 @@ class Products extends StatelessWidget {
                 childAspectRatio: 0.5,
               ),
               itemBuilder: (BuildContext context, int index) {
+                print(state.data[index].imageurl);
                 return Card(
                   elevation: 0.1,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
-                        child: Image.asset('assets/images/dummyImage.png',
-                            fit: BoxFit.fill),
+                        child: Image.network(state.data[index].imageurl),
                       ),
                       ListTile(
                         title: Row(

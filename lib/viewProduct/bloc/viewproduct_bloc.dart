@@ -11,7 +11,6 @@ class ViewproductBloc extends Bloc<ViewproductEvent, ViewproductState> {
   ViewproductBloc() : super(ViewproductInitial());
 
   List<Product> productList = [];
-
   @override
   Stream<ViewproductState> mapEventToState(ViewproductEvent event) async* {
     if (event is ProductListingEvent) {
@@ -23,7 +22,6 @@ class ViewproductBloc extends Bloc<ViewproductEvent, ViewproductState> {
           Product.fromJson(element.data() as Map<String, dynamic>),
         );
       });
-      print(data);
       yield ProductListingState(data: productList);
     }
   }
